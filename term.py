@@ -29,7 +29,7 @@ class fe568a:
 
 
     @staticmethod
-    def set_freq_nonvolatile(freq):
+    def set_freq_nonvolatile():
         fe568.COM.write('E\r\n')
 
 
