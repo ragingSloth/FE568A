@@ -18,6 +18,14 @@ class fe568a:
         pass
 
     @staticmethod
+    def set_freq_volatile_hex(val):
+        if len(val) <= 8:
+            val = '0' * (8 - len(val)) + val
+        else:
+            raise Exception('Frequency too high')
+        fe568a.COM.write('F=' + val + '\r\n')
+
+    @staticmethod
     def set_freq_volatile(freq):
         frac = freq/fe568a.Fref
         val = hex(int(frac*(2**32-1)))[2:]
